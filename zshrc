@@ -44,4 +44,4 @@ function nvm_on() {
 }
 
 # some work configs
-[ -e "~/work/setups.bashrc" ] && source "~/work/setup.bashrc"
+[ -s "$HOME/work/setup.bashrc" ] && source "$HOME/work/setup.bashrc"
