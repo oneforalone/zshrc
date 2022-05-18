@@ -20,31 +20,35 @@ export PATH="$PATH:/Users/yuqi/.foundry/bin"
 export GOPATH=$HOME/coding/golang
 export PATH=$PATH:$GOPATH/bin
 
+[[ -s "$(brew --prefix)/etc/bash_completion.d/go" ]] && source "$(brew --prefix)/etc/bash_completion.d/go"
+
 # pyenv
 export PATH="$PATH:/Users/yuqi/.pyenv/bin"
-function pyenv_on() {
-  eval "$(pyenv virtualenv-init -)"
-}
+eval "$(pyenv virtualenv-init - --no-rehash)"
 
 # rbenv
 export PATH="$HOME/.rbenv/bin:$PATH"
-function rbenv_on() {
-  eval "$(rbenv init - zsh)"
-  export RUBY_BUILD_MIRROR_URL=https://cache.ruby-china.com
-}
+# from https://www.americaninno.com/boston/speeding-up-your-console-when-using-rbenv/
+eval "$(rbenv init - zsh --no-rehash)"
+# using mirror in china
+export RUBY_BUILD_MIRROR_URL=https://cache.ruby-china.com
 
-# Node Version Manager
-# loading nvm would slow the shell, load it manually
+
+# Node Version Manager - NVM
+# from https://www.ioannispoulakas.com/2020/02/22/how-to-speed-up-shell-load-while-using-nvm/
+# to speedup the loading process
+# Add default node to path
+export PATH="$HOME/.nvm/versions/node/v14.19.1/bin:$PATH"
+
+# Setting the default directory
 export NVM_DIR="$HOME/.nvm"
-function nvm_on() {
-  # This loads nvm
-  [ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"
-  # This loads nvm bash_completion
-  [ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"
-}
+export NVM_BIN_DIR="$(brew --prefix)/opt/nvm"
+# Load nvm
+[[ -s "$NVM_BIN_DIR/nvm.sh" ]] && source "$NVM_BIN_DIR/nvm.sh" --no-use
+[[ -s "$NVM_BIN_DIR/etc/bash_completion.d/nvm" ]] && source "$NVM_BIN_DIR/etc/bash_completion.d/nvm"
 
 # some work configs
-[ -s "$HOME/work/setup.bashrc" ] && source "$HOME/work/setup.bashrc"
+[[ -s "$HOME/work/setup.bashrc" ]] && source "$HOME/work/setup.bashrc"
 
 # enable autocompletion
 autoload -Uz compinit && compinit
