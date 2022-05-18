@@ -2,9 +2,6 @@
 export CLICOLOR=1
 PROMPT="%B%F{green}%17<...<%3~%<< > %b%f"
 
-# enable autocompletion
-autoload -Uz compinit && compinit
-
 # proxy
 alias proxy="export http_proxy=http://127.0.0.1:7890; export https_proxy=http://127.0.0.1:7890"
 alias unproxy="unset http_proxy; unset https_proxy"
@@ -48,3 +45,6 @@ function nvm_on() {
 
 # some work configs
 [ -s "$HOME/work/setup.bashrc" ] && source "$HOME/work/setup.bashrc"
+
+# enable autocompletion
+autoload -Uz compinit && compinit
