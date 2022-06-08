@@ -38,7 +38,7 @@ export RUBY_BUILD_MIRROR_URL=https://cache.ruby-china.com
 # from https://www.ioannispoulakas.com/2020/02/22/how-to-speed-up-shell-load-while-using-nvm/
 # to speedup the loading process
 # Add default node to path
-export PATH="$HOME/.nvm/versions/node/v14.19.1/bin:$PATH"
+export PATH="$HOME/.nvm/versions/node/v14.19.3/bin:$PATH"
 
 # Setting the default directory
 export NVM_DIR="$HOME/.nvm"
