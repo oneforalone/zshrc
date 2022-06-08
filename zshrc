@@ -5,7 +5,6 @@ PROMPT="%B%F{green}%17<...<%3~%<< > %b%f"
 # proxy
 alias proxy="export http_proxy=http://127.0.0.1:7890; export https_proxy=http://127.0.0.1:7890"
 alias unproxy="unset http_proxy; unset https_proxy"
-proxy
 
 # LLVM
 export PATH="/opt/homebrew/opt/llvm/bin:$PATH"
