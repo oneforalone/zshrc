@@ -36,15 +36,16 @@ export RUBY_BUILD_MIRROR_URL=https://cache.ruby-china.com
 # Node Version Manager - NVM
 # from https://www.ioannispoulakas.com/2020/02/22/how-to-speed-up-shell-load-while-using-nvm/
 # to speedup the loading process
-# Add default node to path
-export PATH="$HOME/.nvm/versions/node/v14.19.3/bin:$PATH"
-
 # Setting the default directory
 export NVM_DIR="$HOME/.nvm"
 export NVM_BIN_DIR="$(brew --prefix)/opt/nvm"
 # Load nvm
 [[ -s "$NVM_BIN_DIR/nvm.sh" ]] && source "$NVM_BIN_DIR/nvm.sh" --no-use
 [[ -s "$NVM_BIN_DIR/etc/bash_completion.d/nvm" ]] && source "$NVM_BIN_DIR/etc/bash_completion.d/nvm"
+
+# Add default node to path
+NODE_VER=$(cat $HOME/.nvm/alias/default)
+export PATH="$HOME/.nvm/versions/node/v$NODE_VER/bin:$PATH"
 
 # some work configs
 [[ -s "$HOME/work/setup.bashrc" ]] && source "$HOME/work/setup.bashrc"
